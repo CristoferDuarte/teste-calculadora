@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Atelier Sil Cortinas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Calculadora de Cortinas</h1>
+
+    <label>Tipo de Produto:</label>
+    <select id="tipo">
+        <option value="632.50">Cortina só tecido</option>
+        <option value="747.50">Cortina + Blackout</option>
+        <option value="415.00">Somente Blackout</option>
+    </select>
+
+    <label>Largura (metros):</label>
+    <input type="number" id="largura" step="0.01" placeholder="Ex: 2.00">
+    <label>Altura (metros):</label>
+    <input type="number" id="largura" step="0.01" placeholder="Ex: 2.00">
+
+    <label>Forma de Pagamento:</label>
+    <select id="pagamento">
+        <option value="avista">À Vista (15% desconto)</option>
+        <option value="cartao">Cartão de Crédito (5% desconto até 10x)</option>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
