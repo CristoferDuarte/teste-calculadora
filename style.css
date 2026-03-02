@@ -1,29 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #2c3e50, #34495e);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
 }
 
 .container {
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    width: 400px;
+    width: 100%;
+    max-width: 420px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 h1 {
     text-align: center;
     color: #2c3e50;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-top: 12px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 select, input {
@@ -45,6 +55,7 @@ button {
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -53,6 +64,20 @@ button:hover {
 
 #resultado {
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
+    background: #f4f6f8;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 400px) {
+    .container {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
 }
