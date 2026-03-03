@@ -47,7 +47,7 @@ function calcular() {
     `;
 
     if (formaPagamento === "cartao") {
-        resultadoTexto += <br><strong>Em até 10x de:</strong> ${parcelas};
+        resultadoTexto += `<br><strong>Em até 10x de:</strong> ${parcelas}`;
     }
 
     document.getElementById("resultado").innerHTML = resultadoTexto;
