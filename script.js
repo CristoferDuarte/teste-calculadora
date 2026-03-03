@@ -1,17 +1,15 @@
 function calcular() {
 
     let largura = parseFloat(document.getElementById("largura").value);
-    let altura = parseFloat(document.getElementById("altura").value);
     let valorMetro = parseFloat(document.getElementById("tipo").value);
     let formaPagamento = document.getElementById("pagamento").value;
 
-    if (isNaN(largura) || largura <= 0 || isNaN(altura) || altura <= 0) {
-        document.getElementById("resultado").innerHTML = "Digite largura e altura válidas.";
+    if (isNaN(largura) || largura <= 0) {
+        document.getElementById("resultado").innerHTML = "Digite uma largura válida.";
         return;
     }
 
-    let area = largura * altura;
-    let valorBruto = area * valorMetro;
+    let valorBruto = largura * valorMetro;
     let desconto = 0;
 
     if (formaPagamento === "avista") {
@@ -22,23 +20,34 @@ function calcular() {
 
     let valorFinal = valorBruto - desconto;
 
-    let formatar = (valor) => {
-        return valor.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-    };
+    let brutoFormatado = valorBruto.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    let descontoFormatado = desconto.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    let finalFormatado = valorFinal.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    let parcelas = (valorFinal / 10).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
 
     let resultadoTexto = `
-        <strong>Área Total:</strong> ${area.toFixed(2)} m²<br>
-        <strong>Valor Original:</strong> ${formatar(valorBruto)}<br>
-        <strong>Desconto:</strong> ${formatar(desconto)}<br>
-        <strong>Valor Final:</strong> ${formatar(valorFinal)}
+        <strong>Valor Original:</strong> ${brutoFormatado}<br>
+        <strong>Desconto:</strong> ${descontoFormatado}<br>
+        <strong>Valor Final:</strong> ${finalFormatado}
     `;
 
     if (formaPagamento === "cartao") {
-        let parcelas = valorFinal / 10;
-        resultadoTexto += `<br><strong>Em até 10x de:</strong> ${formatar(parcelas)}`;
+        resultadoTexto += <br><strong>Em até 10x de:</strong> ${parcelas};
     }
 
     document.getElementById("resultado").innerHTML = resultadoTexto;
