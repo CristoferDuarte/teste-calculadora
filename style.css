@@ -1,55 +1,56 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #2c3e50, #34495e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* alterado para melhor responsividade */
     margin: 0;
-    padding: 0;
+    padding: 20px; /* espaço nas laterais no celular */
+    box-sizing: border-box;
 }
 
-/* 📱 Layout Mobile Primeiro */
 .container {
     background: white;
+    padding: 30px;
+    border-radius: 12px;
     width: 100%;
-    min-height: 100vh;
-    padding: 25px 20px;
+    max-width: 400px; /* em vez de largura fixa */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Título maior no celular */
 h1 {
     text-align: center;
     color: #2c3e50;
-    font-size: 26px;
-    margin-bottom: 20px;
+    font-size: 22px;
 }
 
 label {
     display: block;
-    margin-top: 15px;
+    margin-top: 12px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 select, input {
     width: 100%;
-    padding: 14px;
-    margin-top: 8px;
-    border-radius: 8px;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 15px;
+    box-sizing: border-box;
 }
 
 button {
-    margin-top: 25px;
+    margin-top: 20px;
     width: 100%;
-    padding: 16px;
+    padding: 12px;
     background-color: #2c3e50;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -59,30 +60,27 @@ button:hover {
 }
 
 #resultado {
-    margin-top: 25px;
-    font-size: 16px;
-    line-height: 1.7;
-    background: #f4f6f8;
-    padding: 15px;
-    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    word-break: break-word;
 }
 
-/* 💻 Ajuste apenas para desktop */
-@media (min-width: 768px) {
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+/* Ajuste específico para telas pequenas */
+@media (max-width: 480px) {
+    .container {
         padding: 20px;
     }
 
-    .container {
-        max-width: 450px;
-        min-height: auto;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    h1 {
+        font-size: 18px;
     }
 
+    select, input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
